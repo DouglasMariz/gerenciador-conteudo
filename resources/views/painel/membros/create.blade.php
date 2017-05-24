@@ -1,4 +1,4 @@
-@extends('templates.membros')
+@extends('templates.layout')
     @section('content')
         <h2>{{ $title or 'Gerenciamento de Membros' }}</h2>
         @if(!isset($membro))
@@ -28,3 +28,10 @@
         </form>
         <a href="/painel/membros" class="btn btn-danger btn-voltar">Cancelar</a>
     @endsection
+    @push('styles')
+        <link rel="stylesheet" href="/css/painel/membros.css">
+    @endpush
+
+    @push('scripts')
+        <script type="text/javascript" src="{{ url('js/painel/membros/membros.js') }}"></script>
+    @endpush

@@ -1,4 +1,4 @@
-@extends('templates.membros')
+@extends('templates.layout')
     @section('content')
         <h2>Membros</h2>
         <a href="/painel/membros/create" class="btn btn-primary btn-cadastrar">Cadatrar</a>
@@ -27,3 +27,11 @@
             @endforeach
         </table>
     @endsection
+
+    @push('styles')
+        <link rel="stylesheet" href="/css/painel/membros.css">
+    @endpush
+
+    @push('scripts')
+        <script type="text/javascript" src="{{ url('js/painel/membros/membros.js') }}"></script>
+    @endpush
