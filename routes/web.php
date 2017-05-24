@@ -15,5 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['prefix' => 'painel'], function() {
+	Route::get('/', 'Painel\DashboardController@index');
     Route::resource('membros', 'Painel\MembrosController');
 });

@@ -1,0 +1,60 @@
+body {
+    background: #f5f8fa;
+    font-family: 'Raleway';
+    display: flex;
+    height: 100vh;
+    color: #696969;
+}
+
+/*menu lateral*/
+
+#menu {
+	width: 15%;
+	background: #2c3e50;
+	display: flex;
+	flex-direction: column;
+}
+
+.dados-usuario {
+	height: 15%;
+	background: black;
+}
+
+.lista-links {
+	list-style-type: none;
+  	padding: 15px;
+
+}
+
+.lista-links li {
+	margin-bottom: 15px;
+}
+
+.lista-links li a {
+	text-decoration: none;
+	color: #CFCFCF;
+}
+
+.lista-links li a:hover {
+	color: white;
+}
+/*menu lateral fim*/
+
+#conteudo {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	/*width: 50%;*/
+}
+
+#conteudo .barra-superior {
+	height: 15%;
+	background: #19262D;
+	color: white;
+	padding-left: 20px;
+}
+
+#conteudo .dados {
+	margin-left: 25px;
+	margin-right: 25px;
+}
