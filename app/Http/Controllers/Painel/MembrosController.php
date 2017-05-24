@@ -21,7 +21,7 @@ class MembrosController extends Controller
 
         $title = 'Listagem dos Membros';
         $css = 'membros';
-        $membros = $membro->all();
+        $membros = $membro->paginate(5);
 
         return view('painel/membros/index', compact('membros', 'css'));
     }

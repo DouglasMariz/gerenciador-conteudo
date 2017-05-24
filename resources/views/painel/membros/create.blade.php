@@ -1,5 +1,7 @@
 @extends('templates.layout')
     @section('content')
+    <div class="col-md-6 col-md-offset-3">
+        
         <h2>{{ $title or 'Gerenciamento de Membros' }}</h2>
         @if(isset($errors) && count($errors) > 0)
             <div class="alert alert-danger">
@@ -34,7 +36,11 @@
 
         </form>
         <a href="/painel/membros" class="btn btn-danger btn-voltar">Cancelar</a>
+    </div>
     @endsection
+    @push('titulo')
+        <h2>Membros</h2>
+    @endpush
     @push('styles')
         <link rel="stylesheet" href="/css/painel/membros.css">
     @endpush

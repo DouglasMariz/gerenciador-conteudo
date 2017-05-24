@@ -13,19 +13,19 @@
                 <div class="dados-usuario"></div>
                 <ul class="lista-links">
                     <li>
-                        <a href="/painel"><span class="glyphicon glyphicon-home"></span> Dashboard</a>
+                        <a href="/painel"><i class="glyphicon glyphicon-home"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="/painel/membros"><span class="glyphicon glyphicon-user"></span> Membros</a>
+                        <a href="/painel/membros"><i class="glyphicon glyphicon-user"></i> Membros</a>
                     </li>
                     <li>
-                        <a href="#"><span class="glyphicon glyphicon-list-alt"></span> Blog</a>
+                        <a href="#"><i class="glyphicon glyphicon-list-alt"></i> Blog</a>
                     </li>
                     <li>
-                        <a href="#"><span class="glyphicon glyphicon-font"></span> Empresa</a>
+                        <a href="#"><i class="glyphicon glyphicon-font"></i> Empresa</a>
                     </li>
                     <li>
-                        <a href="#"><span class="glyphicon glyphicon-briefcase"></span> Portifólio</a>
+                        <a href="#"><i class="glyphicon glyphicon-briefcase"></i> Portifólio</a>
                     </li>
                 </ul>
         </asside>

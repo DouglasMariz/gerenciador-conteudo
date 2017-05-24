@@ -1,6 +1,14 @@
 /*membros index*/
+
+.cadastro{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 .btn-cadastrar {
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
+    float: right;
 }
 
 .table > tbody > tr > td {
