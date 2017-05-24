@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::group(['prefix' => 'painel'], function() {
-	Route::get('/', 'Painel\DashboardController@index');
+Route::get('/','HomeController@index');
+Route::group(['prefix' => 'painel', 'middleware' => 'auth'], function() {
+	Route::get('/', 'Painel\DashboardController@index')->name('painel');
     Route::resource('membros', 'Painel\MembrosController');
 });
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

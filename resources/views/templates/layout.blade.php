@@ -10,7 +10,9 @@
     </head>
     <body>
         <asside id="menu">
-                <div class="dados-usuario"></div>
+                <div class="dados-usuario">
+                    {{ Auth::user()->name }}
+                </div>
                 <ul class="lista-links">
                     <li>
                         <a href="/painel"><i class="glyphicon glyphicon-home"></i> Dashboard</a>
@@ -31,6 +33,15 @@
         </asside>
         <section id="conteudo">
             <div class="barra-superior">
+                <a href="{{ route('logout') }}" class="btn btn-sair" 
+                    onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                    Sair
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
                 @stack('titulo')
             </div>
             <div class="dados">

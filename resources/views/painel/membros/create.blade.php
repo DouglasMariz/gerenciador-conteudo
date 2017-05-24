@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label for="formCargo">Cargo:</label>
-                <input type="text" id="formCargo" name="cargo" class="form-control" placeholder="Cargo" value="{{ $membro->cargo or old('nome') }}">
+                <input type="text" id="formCargo" name="cargo" class="form-control" placeholder="Cargo" value="{{ $membro->cargo or old('cargo') }}">
             </div>
             <div class="form-group">
                 <label>Foto:</label>

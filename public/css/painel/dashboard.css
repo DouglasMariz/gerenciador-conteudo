@@ -47,12 +47,34 @@ body {
 	/*width: 50%;*/
 }
 
+/*Barra superior*/
 #conteudo .barra-superior {
+	display: flex;
+	flex-direction: row-reverse;
 	height: 15%;
 	background: #19262D;
 	color: white;
 	padding-left: 20px;
+	align-items: center;
 }
+
+.btn-sair {
+	text-decoration: none;
+	color: #CFCFCF;
+	padding: 10px 20px 10px 20px;
+	border-radius: 3px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+
+.btn-sair:hover {
+	background: #E8E8E8;
+	transition: 1s;
+	color: #000000;
+	text-decoration: none;
+}
+
+/*Barra superior fim*/
 
 #conteudo .dados {
 	margin-left: 25px;
