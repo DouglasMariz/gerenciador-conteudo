@@ -1,0 +1,78 @@
+body {
+    background: #f5f8fa;
+}
+
+* {
+    font-family: 'Raleway';
+    color: #696969;
+}
+/*membros index*/
+.btn-cadastrar {
+    margin-bottom: 5px;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.imagem-tabela {
+    max-height: 50px;
+}
+
+.acoes {
+    display: flex;
+}
+
+.acao {
+    color: white;
+    margin: 0px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.acao-visualizar{
+    background: green;
+}
+
+.acao-editar {
+    margin-left: 5px;
+    background: #27236f;
+}
+
+.acao-remover {
+    margin-left: 5px;
+    background: #fb0202;
+}
+.acao span {
+    text-decoration: none;
+
+}
+
+.acao a:hover, span {
+    color: white;
+    text
+}
+/*membros index fim*/
+
+/*membros create/edit*/
+.btn-voltar {
+    margin-top: 10px;
+}
+
+/*membros create/edit fim*/
+
+/*membros show*/
+
+.foto {
+    max-width: 250px;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

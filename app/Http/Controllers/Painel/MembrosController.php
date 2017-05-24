@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Painel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Membro;
+use File;
 
 class MembrosController extends Controller
 {
@@ -15,9 +16,12 @@ class MembrosController extends Controller
      */
     public function index(Membro $membro)
     {
+
+        $title = 'Listagem dos Membros';
+        $css = 'membros';
         $membros = $membro->all();
 
-        return view('painel/membros/index', compact('membros'));
+        return view('painel/membros/index', compact('membros', 'css'));
     }
 
     /**
@@ -39,11 +43,22 @@ class MembrosController extends Controller
     public function store(Request $request)
     {
         $file = $request->file('foto');
-        $destino = 'upload/profile';
-        $extension = 'jpg';
-        $fileName = rand(11111, 99999) .'.'. $extension;
-        $path = $file->move($destino, $fileName);
-        return $path;
+        $destino = 'upload/membros';
+        $extension = $file->extension();
+
+        $fileName = rand(11111, 99999).time().'.'. $extension;
+        $file->move($destino, $fileName);
+
+        $dados = $request->all();
+        $dados['imagem'] = $fileName;
+
+        $insert = Membro::create($dados);
+
+        if($insert){
+            return redirect()->route('membros.index');
+        } else {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -54,7 +69,9 @@ class MembrosController extends Controller
      */
     public function show($id)
     {
-        //
+        $membro = Membro::find($id);
+
+        return view ('painel/membros/show', compact('membro'));
     }
 
     /**
@@ -65,7 +82,9 @@ class MembrosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $membro = Membro::find($id);
+
+        return view('painel/membros/create', compact('membro'));
     }
 
     /**
@@ -77,7 +96,23 @@ class MembrosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $foto = $request->file('foto');
+        $dados = $request->all();
+        $membro = Membro::find($id);
+        if(isset($foto)){
+
+            File::delete(public_path('upload/membros/'.$membro->imagem));
+            $destino = 'upload/membros';
+            $extension = $foto->extension();
+
+            $fileName = rand(11111, 99999).time().'.'. $extension;
+            $foto->move($destino, $fileName);
+            $dados['imagem'] = $fileName;
+            $membro->update($dados);
+        } else {
+            $membro->update($dados);
+        }
+        return redirect()->route('membros.index');
     }
 
     /**
@@ -88,6 +123,9 @@ class MembrosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $membro = Membro::find($id);
+        File::delete(public_path('upload/membros/'.$membro->imagem));
+        Membro::destroy($id);
+        return redirect()->route('membros.index');
     }
 }
