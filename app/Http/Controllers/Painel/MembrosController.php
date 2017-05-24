@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Membro;
 use File;
+use App\Http\Requests\Painel\MembrosFormRequest;
+use App\Http\Requests\Painel\MembrosUpdateFormRequest;
 
 class MembrosController extends Controller
 {
@@ -40,9 +42,9 @@ class MembrosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MembrosFormRequest $request)
     {
-        $file = $request->file('foto');
+        $file = $request->file('imagem');
         $destino = 'upload/membros';
         $extension = $file->extension();
 
@@ -94,7 +96,7 @@ class MembrosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MembrosUpdateFormRequest $request, $id)
     {
         $foto = $request->file('foto');
         $dados = $request->all();
@@ -108,11 +110,13 @@ class MembrosController extends Controller
             $fileName = rand(11111, 99999).time().'.'. $extension;
             $foto->move($destino, $fileName);
             $dados['imagem'] = $fileName;
-            $membro->update($dados);
-        } else {
-            $membro->update($dados);
         }
-        return redirect()->route('membros.index');
+
+        $update = $membro->update($dados);
+        if($update)
+            return redirect()->route('membros.index');
+        else
+            return redirect()->back();
     }
 
     /**

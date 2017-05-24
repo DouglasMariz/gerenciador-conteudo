@@ -1,6 +1,13 @@
 @extends('templates.layout')
     @section('content')
         <h2>{{ $title or 'Gerenciamento de Membros' }}</h2>
+        @if(isset($errors) && count($errors) > 0)
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                    <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
         @if(!isset($membro))
         <form action="{{route('membros.store')}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
@@ -19,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label>Foto:</label>
-                <input type="file" name="foto">
+                <input type="file" name="imagem" value="{{ old('imagem') }}">
             </div>
             <div class="form-group">
                 <button class="btn btn-primary" name="button" type="submit">Salvar</button>
